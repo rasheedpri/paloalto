@@ -1,0 +1,15 @@
+---
+- name: Create NAT Rule
+  collections: paloaltonetworks.panos
+  panos_nat_rule:
+    provider: '{{ provider }}'
+    rule_name: 'Allow_Internet'
+    source_zone: ["trust"]
+    destination_zone: 'untrust'
+    source_ip: ['obj-n-172.16.10.0-24']
+    destination_ip: ['any']
+    service: 'any'
+    snat_type: 'dynamic-ip-and-port'
+    snat_interface: 'ethernet1/4'
+    snat_interface_address: '172.16.1.2/30'
+    snat_address_type: 'interface-address'

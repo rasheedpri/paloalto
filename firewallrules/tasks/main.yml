@@ -1,0 +1,17 @@
+---
+- name: Add Firewall Policy
+  collections: paloaltonetworks.panos
+  panos_security_rule:
+    provider: '{{ provider }}'
+    rule_name: 'T2U-LAN-2-INTERNET'
+    description: 'Allow Internet to Lan'
+    source_zone: ['trust']
+    destination_zone: ['untrust']
+    source_ip: ['obj-n-172.16.10.0-24']
+    source_user: ['any']
+    destination_ip: ['any']
+    application: ['any']
+    service: ['any']
+    hip_profiles: ['any']
+    action: 'allow'
+

@@ -1,0 +1,9 @@
+---
+- name: Create PA Object
+  collections: paloaltonetworks.panos
+  panos_address_object:
+    provider: '{{ provider }}'
+    name: 'obj-n-172.16.10.0-24'
+    address_type: 'ip-netmask'
+    value: '172.16.10.0/24'
+

@@ -1,0 +1,9 @@
+---
+- name: Create default-route
+  collections: paloaltonetworks.panos
+  panos_static_route:
+    provider: '{{ provider }}'
+    name: 'default-route'
+    interface: 'ethernet1/4'
+    destination: '0.0.0.0/0'
+    nexthop: '172.16.1.1'
